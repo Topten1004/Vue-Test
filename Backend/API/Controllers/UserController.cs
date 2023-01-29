@@ -26,9 +26,12 @@ namespace Tepe.Brt.Api.Controllers
 
         // Method to get the list of the users
         [HttpGet(Name = "GetUsers")]
-        public async Task<IResult> GetUser()
+        public async Task<IResult> GetUser([FromQuery]int pagination)
         {
+            int pages = pagination;
             var result = await _genericService.GetUserList();
+            var response = new List<UserEntity>();
+
             if (result == null)
             {
                 return Results.NotFound();

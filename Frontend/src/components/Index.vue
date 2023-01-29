@@ -1,53 +1,83 @@
 <template>
-    <div class="pt-5">
-        <div v-if="subscriptions && subscriptions.length">
-            <div class="card mb-3" v-for="subscription of subscriptions" v-bind:key="subscription.id">
-                <div class="row no-gutters">
-                    <div class="col-md-4">
-                        <svg class="bd-placeholder-img" width="200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>{{ subscription.name }}</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">{{ subscription.name.charAt(0) }}</text></svg>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ subscription.name }}</h5>
-                            <p class="card-text">{{ subscription.description }}</p>
-                            <router-link :to="{name: 'edit', params: { id: subscription.id }}" class="btn btn-sm btn-primary">Edit</router-link>
-                            <button class="btn btn-danger btn-sm ml-1" v-on:click="deleteSubscription(subscription)">Delete</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <p  v-if="subscriptions.length == 0">No subscriptions</p>
+    <div>
+        <b-table striped hover :items="Users"></b-table>
+        <section>
+            <button class="first-page-btn" v-on:click="firstPage()">
+                first
+            </button>
+            <button class="previous-page-btn" v-on:click="previousPage()">
+                previous
+            </button>
+            <button class="next-page-btn" v-on:click="nextPage()">
+                next
+            </button>
+            <button class="last-page-btn" v-on:click="lastPage()">
+                last
+            </button>
+        </section>
     </div>
 </template>
 <script>
-
-import axios from 'axios';
+import axios from "axios";
 
 export default {
-    data() {
-        return {
-            subscriptions: []
+  data() {
+    return {
+      allUsers: [],
+      Users: [],
+      page: 0,
+      totalPage: 0,
+      pageSize: 10
+    };
+  },
+  created() {
+    this.all();
+  },
+  methods: {
+    lastPage : function()
+    {
+      this.page = this.totalPage;
+      this.paginate(this.page);
+    },
+    firstPage : function() {
+        this.page = 0;
+        this.paginate(this.page);
+    },
+    nextPage : function() {
+        this.page += 1;
+        if (this.page > this.totalPage) {
+            this.page = this.totalPage;
         }
+        this.paginate(this.page);
     },
-    created() {
-        this.all();
+    previousPage : function() {
+        this.page -= 1;
+        if (this.page < 0) {
+            this.page = 0;
+        }
+        this.paginate(this.page);
     },
-    methods: {
-        deleteSubscription: function(subscr) {
-            if (confirm('Delete ' + subscr.name)) {
-                axios.delete(`http://127.0.0.1:8000/api/subscriptions/${subscr.id}`)
-                    .then( response => {
-                        this.all();
-                    });
+    paginate : function(page) {
+        let i = 0;
+        this.Users.splice(0, this.Users.length);
+        while(i < this.allUsers.length) {
+            if ( i >= page * this.pageSize && i < (this.page + 1)* this.pageSize)
+            {
+                this.Users.push(this.allUsers[i]);
+                console.log(this.Users);
             }
-        },
-        all: function () {
-            axios.get('http://127.0.0.1:8000/api/subscriptions/')
-                .then( response => {
-                    this.subscriptions = response.data
-                });
+            i++;
         }
     },
-}
+    all: function() {
+      axios.get("https://localhost:44390/User").then((response) => {
+        console.log(response.data.value);
+        this.allUsers = response.data.value;
+        this.totalPage = Math.round(this.allUsers.length / this.pageSize);
+
+        this.paginate(0);
+      });
+    },
+  },
+};
 </script>
