@@ -1,0 +1,57 @@
+{
+  "Files": [
+    {
+      "Id": "E:\\GitHub\\FullStack_Github\\Vue-Test\\Backend\\API\\wwwroot\\files\\CategoryImages\\Dustin_23dc.png",
+      "PackagePath": "staticwebassets\\files\\CategoryImages\\Dustin_23dc.png"
+    },
+    {
+      "Id": "E:\\GitHub\\FullStack_Github\\Vue-Test\\Backend\\API\\wwwroot\\files\\CategoryImages\\Screenshot_2022.06.27_04.52.39.201_7e0d.png",
+      "PackagePath": "staticwebassets\\files\\CategoryImages\\Screenshot_2022.06.27_04.52.39.201_7e0d.png"
+    },
+    {
+      "Id": "E:\\GitHub\\FullStack_Github\\Vue-Test\\Backend\\API\\wwwroot\\files\\CategoryImages\\Screenshot_2022.07.17_06.49.52.629_955b.png",
+      "PackagePath": "staticwebassets\\files\\CategoryImages\\Screenshot_2022.07.17_06.49.52.629_955b.png"
+    },
+    {
+      "Id": "E:\\GitHub\\FullStack_Github\\Vue-Test\\Backend\\API\\wwwroot\\files\\CategoryImages\\Veron Mark_7b8b.png",
+      "PackagePath": "staticwebassets\\files\\CategoryImages\\Veron Mark_7b8b.png"
+    },
+    {
+      "Id": "E:\\GitHub\\FullStack_Github\\Vue-Test\\Backend\\API\\wwwroot\\files\\CategoryImages\\kic_7654.png",
+      "PackagePath": "staticwebassets\\files\\CategoryImages\\kic_7654.png"
+    },
+    {
+      "Id": "E:\\GitHub\\FullStack_Github\\Vue-Test\\Backend\\API\\wwwroot\\files\\CategoryImages\\kic_916d.png",
+      "PackagePath": "staticwebassets\\files\\CategoryImages\\kic_916d.png"
+    },
+    {
+      "Id": "E:\\GitHub\\FullStack_Github\\Vue-Test\\Backend\\API\\wwwroot\\files\\CategoryImages\\upwork_af73.png",
+      "PackagePath": "staticwebassets\\files\\CategoryImages\\upwork_af73.png"
+    },
+    {
+      "Id": "E:\\GitHub\\FullStack_Github\\Vue-Test\\Backend\\API\\wwwroot\\files\\CategoryImages\\upwork_cda1.png",
+      "PackagePath": "staticwebassets\\files\\CategoryImages\\upwork_cda1.png"
+    },
+    {
+      "Id": "E:\\GitHub\\FullStack_Github\\Vue-Test\\Backend\\API\\wwwroot\\files\\RecommendationImages\\blob_40bc.png",
+      "PackagePath": "staticwebassets\\files\\RecommendationImages\\blob_40bc.png"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.Backend.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.Backend.props",
+      "PackagePath": "build\\Backend.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.Backend.props",
+      "PackagePath": "buildMultiTargeting\\Backend.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.Backend.props",
+      "PackagePath": "buildTransitive\\Backend.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
